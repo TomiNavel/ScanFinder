@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scanfinder"
+version = "0.1.0"
+description = "Network scanner to detect accessible IPs with open ports"
+readme = "CLAUDE.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "ScanFinder Team"}
+]
+keywords = ["network", "scanner", "nmap", "security", "ports"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: System Administrators",
+    "Topic :: System :: Networking",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "python-nmap>=0.7.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+scanfinder = "scanfinder:cli"
+
+[tool.setuptools]
+py-modules = ["scanfinder", "config"]
+packages = ["src"]
